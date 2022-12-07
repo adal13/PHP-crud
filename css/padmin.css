@@ -1,0 +1,142 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /* width: 100%; */
+    /* height: 100vh; */
+    background-image: linear-gradient(rgba(5, 10, 5, 0.90), rgba(90, 40, 90, 0.90));
+    background-color: #121212;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.navbar {
+    width: 80%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-family: Arial;
+    text-align: center;
+
+}
+
+.logo {
+    width: 130px;
+    cursor: pointer;
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: Roboto, "sans-serif";
+    font-size: 1.2rem;
+}
+
+.navbar ul li::before {
+    content: "";
+    height: 3px;
+    width: 0%;
+    background: yellowgreen;
+    position: absolute;
+    left: 0;
+    bottom: -12px;
+    transition: 0.4s ease-out;
+}
+
+.navbar ul li:hover::before {
+    width: 100%;
+}
+
+.cont-table{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.container-tab{
+    background-color: white;
+    padding: 5px;
+    margin: 22px;
+    border-radius: 10px;
+}
+
+.color-table{
+    background-color: green;
+    font-family: Arial;
+
+}
+
+.form-buscar{
+    margin: 5px;
+    padding: 1%;
+    margin-left: 70%;
+}
+
+.name_buscar{
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.button-buscar{
+    padding: 4px;
+    border-radius: 8px;
+}
+
+table{
+    font-size: 15px;
+}
+
+th{
+    padding: 5px;
+}
+
+tr{
+    margin: 100%;
+}
+
+tbody{
+    text-align: center;
+    font-family: Arial;
+}
+
+.botton-eliminar{
+    background-color: red;
+    border-radius: 5px;
+    margin: 2px;
+    border: 0px;
+    padding: 6px;
+    display: flex;
+    font-family: Arial;
+}
+
+.botton-editar{
+    background-color: green;
+    border-radius: 5px;
+    border: 0px;
+    padding: 7px;
+    font-family: Arial;
+
+}
+
+.text-ee{
+    color: white;
+}
+
+.title-name{
+    color: white;
+
+}

@@ -1,0 +1,46 @@
+.titulos{font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: white;
+         background: #0f3443; /* Old browsers */ background: -moz-linear-gradient(left, #0f3443 0%, #34e69f 100%); /* FF3.6-15 */
+         background: -webkit-linear-gradient(left, #0f3443 0%,#34e69f 100%); /* Chrome10-25,Safari5.1-6 */
+         background: linear-gradient(to right, #0f3443 10%,#34e69f 150%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */ 
+         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0f3443', endColorstr='#34e69f',GradientType=1 ); /* IE6-9 */ 
+    
+}
+.fecha{
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+}
+.titulos,a{ color: white;}
+
+.nom_usuario{ font-size: 20px; text-align: center; width: 400px; position: absolute; top:30px; right: 500px; left: 500px;}
+
+/*diseño de la tabla */
+/* registro */
+.registro{
+    width: 150px;
+    background-color: #0b8957;
+    text-align: center;
+    padding: 5px;
+    
+}
+table{
+    table-layout: fixed;
+    width: auto;
+    border-collapse: collapse;
+}
+th, td{
+    padding: 5px;
+    text-align: center;
+    border: 2px solid whitesmoke;
+}
+th{
+    background-color: #0d7a7a;
+    color: bisque;
+}
+.botton{
+    background-color: #0b8957;
+    border-radius: 7%;
+    border: #0b8957;
+    padding: 7px;
+}
+
