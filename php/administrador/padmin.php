@@ -1,13 +1,13 @@
 <?php
-        $mysqli=new mysqli('localhost', 'root', '', 'html');
-        $sql="SELECT* FROM tbl_users ORDER BY tx_nombre ASC";
-        
-        if(isset($_POST['buscar'])){
-            $nombre=$_POST['nombre'];
-            $sql="SELECT * FROM tbl_users WHERE tx_nombre LIKE '%$nombre%' ORDER BY tx_nombre ASC";
-        }
-        
-        $query=mysqli_query($mysqli, $sql);
+    $mysqli=new mysqli('localhost', 'root', '', 'html');
+    $sql="SELECT * FROM tbl_users ORDER BY tx_nombre ASC";
+    
+    if(isset($_POST['buscar'])){
+        $nombre=$_POST['nombre'];
+        $sql="SELECT * FROM tbl_users WHERE tx_nombre LIKE '%$nombre%' ORDER BY tx_nombre ASC";
+    }
+    
+    $query=mysqli_query($mysqli, $sql);
 ?>
 
 <?php
@@ -80,7 +80,7 @@
                         <th>Contraseña</th>
                         <th>Tipo de Usuario</th>
                         <th>Operacion</th>
-                        <th></th>   
+                        <!-- <th></th>    -->
                     </tr>
                 </thead>
             
@@ -102,8 +102,8 @@
                             <td><?php echo $row ['tx_username']?></td>
                             <td><?php echo $row ['tx_password']?></td>
                             <td><?php $row ['id_tipousuario']?><?php if($id == 1){echo 'Administrador';} if($id == 2){echo 'Usuario Normal';};?></td>
-                            <td><button class="botton-editar"><a class="text-ee" href="<?='./update/editar.php?id=' .$id_usuario ?>">Editar</a></button></td>
-                            <td><button class="botton-eliminar"><a class="text-ee" href="<?='./eliminar.php?id=' .$id_usuario ?>">Eliminar</a></button></td>
+                            <td><button class="botton-editar boton"><a class="text-ee" href="<?='./update/editar.php?id=' . $id_usuario ?>">Editar</a></button></td>
+                            <td><button class="botton-eliminar boton"><a class="text-ee" href="<?='./eliminar.php?id=' . $id_usuario ?>">Eliminar</a></button></td>
                         </tr>
                     </tbody>
                 <?php }   

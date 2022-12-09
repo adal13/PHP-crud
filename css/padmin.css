@@ -5,8 +5,8 @@
 }
 
 body{
-    /* width: 100%; */
-    /* height: 100vh; */
+    width: 100%;
+    height: 100vh;
     background-image: linear-gradient(rgba(5, 10, 5, 0.90), rgba(90, 40, 90, 0.90));
     background-color: #121212;
     background-size: cover;
@@ -63,14 +63,14 @@ body{
 }
 
 .cont-table{
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .container-tab{
     background-color: white;
-    padding: 5px;
-    margin: 22px;
+    padding: 7px;
+    margin: 35px;
     border-radius: 10px;
 }
 
@@ -101,7 +101,7 @@ table{
 }
 
 th{
-    padding: 5px;
+    padding: 9px;
 }
 
 tr{
@@ -119,8 +119,8 @@ tbody{
     margin: 2px;
     border: 0px;
     padding: 6px;
-    display: flex;
     font-family: Arial;
+
 }
 
 .botton-editar{
@@ -129,14 +129,24 @@ tbody{
     border: 0px;
     padding: 7px;
     font-family: Arial;
-
 }
 
 .text-ee{
     color: white;
+    text-decoration: none;
 }
 
 .title-name{
     color: white;
 
 }
+
+/* .boton{
+    border: none;
+    color: blanco;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+} */

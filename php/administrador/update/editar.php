@@ -1,26 +1,13 @@
 <?php
 
-$mysqli = new mysqli ("localhost", "root", "", "html");
+$mysqli = new mysqli("localhost", "root", "", "html");
 
 $id_usuario = $_GET['id']; 
 //codigo de editar, asi com el delete de eliminar
-$query = "SELECT * FROM tbl_users WHERE tbl_users.id_usuario = '$id_usuario' ";
+$query = "SELECT * FROM tbl_users WHERE id_usuario = '$id_usuario' ";
 
-//se valida la consulta que ejecutaremos
-if($result = $mysqli->query($query))
-{
-    while($row = $result->fetch_assoc())
-    {
-        $id_usuario = $row['id_usuario'];
-        $tx_nombre = $row['tx_nombre'];
-        $tx_apellidoPaterno=$row['tx_apellidoPaterno'];
-        $tx_apellidoMaterno=$row['tx_apellidoMaterno'];
-        $tx_correo=$row['tx_correo'];
-        $tx_username=$row['tx_username'];
-        $tx_password=$row['tx_password'];
-        $id_tipousuario=$row['id_tipousuario'];
-        }
-}
+$query = mysqli_query($mysqli, $query);
+$row=mysqli_fetch_array($query);
 ?>
 
 <!DOCTYPE html>
@@ -33,62 +20,88 @@ if($result = $mysqli->query($query))
     <link rel="stylesheet" href="../../../css/editar.css">
 </head>
 <body>
-<form action='modificar.php' method='POST' class="form_container" class="form">
-    <h3 class="form_title"> Modificar Datos</h3>
-    <!-- <div id="contenedor" > -->
 
-        
-            <div class="form_container">
-
-                <div class="form_group">
-                <label for="name" class="form_label">Nombre:</label>
-                <input class="form_input" name="tx_nombre"
-                type="text"  value="<?php echo $tx_nombre;?>" required placeholder=" "/>
-                <span class="form_line"></span>
-                </div>
-
-                <div class="form_group">
-                <label for="name" class="form_label">Apellido Paterno:</label>
-                <input class="form_input" name="tx_apellidoPaterno" id="tx_apellidoPaterno"
-                type="text"  value="<?php echo $tx_apellidoPaterno;?>" required placeholder=" "/>
-                <span class="form_line"></span>
-            </div>
+    <div class="container-page" id="Container">
+        <div class="registro-container" id="RegistroContainer">
+            <h3 class="title">Modificar Datos</h3>
+            <form action='./modificar.php' method='POST'>
                 
-                <div class="form_group">
-                <label for="name" class="form_label">Apellido Materno:</label>
-                <input class="form_input" id="tx_apellidoMaterno"
-                type="text" name="tx_apellidoMaterno" value="<?php echo $tx_apellidoMaterno;?>" required placeholder=" "/>
-                <span class="form_line"></span>
+                <input class="input-line" type="hidden" name="id_usuario" id="id_usuario" value="<?php echo $row['id_usuario']; ?>" required>
+                
+                <div class="wrapper">
+                    <div class="input-data input-line-container">
+                        <input class="input-line" type="text" name="tx_nombre" id="tx_nombre" value="<?php echo $row['tx_nombre']; ?>" required>
+                        <div class="underline"></div>
+                        <label for="name" class="name-input"> Nombre: </label>
+                    </div>
                 </div>
 
-                <div class="form_group">
-                <label for="name" class="form_label">E-mail:</label>
-                <input class="form_input" id="tx_correo"
-                type="emai" name="tx_correo" value="<?php echo $tx_correo;?>"required placeholder=" "/>
-                <span class="form_line"></span>
+                <div class="wrapper">
+                    <div class="input-data input-line-container">
+                        <input class="input-line" type="text" name="tx_apellidoPaterno" id="tx_apellidoPaterno" value="<?php echo $row['tx_apellidoPaterno']; ?>" required>
+                        <div class="underline"></div>
+                        <label class="name-input"> Apellido Paterno: </label>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div class="input-data input-line-container">
+                        <input class="input-line" type="text" id="tx_apellidoMaterno" name="tx_apellidoMaterno" value="<?php echo $row['tx_apellidoMaterno']; ?>" required>
+                        <div class="underline"></div>
+                        <label class="name-input"> Apellido Materno: </label>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div class="input-data input-line-container">
+                        <input class="input-line" type="email" id="tx_correo" name="tx_correo" value="<?php echo $row['tx_correo']; ?>"required>
+                        <div class="underline"></div>
+                        <label class="name-input"> Correo Electronico: </label>
+                    </div>
                 </div>
 
-                <div class="form_group">
-                <label for="name" class="form_label">Nombre de Usuario:</label>
-                <input class="form_input" id="tx_username" name="tx_username" value="<?php echo $tx_username?>" required placeholder=" "/>
-                <span class="form_line"></span>
+                <div class="wrapper">
+                    <div class="input-data input-line-container">
+                        <input class="input-line" type="text" id="tx_username" name="tx_username" value="<?php echo $row['tx_username']; ?>" required>
+                        <div class="underline"></div>
+                        <label class="name-input"> Nombre de Usuario: </label>
+                    </div>
+                </div>
+                <div class="wrapper">
+                    <div class="input-data input-line-container">
+                        <input class="input-line" type="password" id="tx_password" name="tx_password" value="<?php echo $row['tx_password']; ?>" required>
+                        <div class="underline"></div>
+                        <label class="name-input"> Contraseña: </label>
+                    </div>
                 </div>
 
-                <div class="form_group">
-                <label for="name" class="form_label">Password:</label>
-                <input class="form_input" type="password" id="tx_password" name="tx_password" value="<?php echo $tx_password;?>" required placeholder=" "/>
-                <span class="form_line"></span>
+                <div class="wrapper">
+                    <div class="input-data input-line-container">
+                        <select class="input-data input-line color-text" name="id_tipousuario" id="id_tipousuario" required>
+                            <?php if($row['id_tipousuario'] == 1){?>
+                                <option class="option-user" value="1">Administrador</option>
+                                <option class="option-user" value="2">Usuario Normal</option>
+                            <?php } if($row['id_tipousuario'] == 2){?>
+                                <option class="option-user" value="2">Usuario normal</option>
+                                <option class="option-user" value="1">Administrador</option>
+                            <?php }?>
+                        </select>
+                    </div>
                 </div>
 
-                <select name="id_tipousuario" id="id_tipousuario">
-                    <option value="1">Administrador</option>
-                    <option value="2">Usuario normal</option>
-                </select>
+                <input type="submit" class="button-save" value="Guardar">
+                <input type="button" class="button-save" value="Cerrar" onclick="location.href='../padmin.php'"> 
 
-                <input class="form_submit" type="submit" value="Guardar" name="btnSave">
-                <input class="form_submit" type="button" value="Cerrar" onclick="location.href='../padmin.php'" name="btnSave"> 
+            </form>
 
-            </div>
-    </form>
+        </div>
+    </div>
+
 </body>
 </html>
+
+<!-- <div class="wrapper">
+    <div class="input-data">
+        <input type="text" required>
+        <div class="underline"></div>
+        <label> Name </label>
+    </div>
+</div> -->
