@@ -80,7 +80,7 @@
                         <th>Contraseña</th>
                         <th>Tipo de Usuario</th>
                         <th>Operacion</th>
-                        <!-- <th></th>    -->
+                        <th></th>   
                     </tr>
                 </thead>
             
